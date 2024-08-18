@@ -1,0 +1,34 @@
+/* Style for the overlay */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.7); /* Gray background with transparency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000; /* Ensure it appears above other content */
+  }
+  
+  /* Style for the content inside the overlay */
+  .loader-content {
+    text-align: center;
+  }
+  
+  /* Style for the logo */
+  .logo {
+    width: 100px; /* Adjust the size of the logo as needed */
+    height: auto;
+    margin-bottom: 20px; /* Space between logo and text */
+  }
+  
+  /* Style for the loading text */
+  .loading-text {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

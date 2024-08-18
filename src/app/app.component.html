@@ -1,3 +1,20 @@
+<!-- <div *ngIf="showLoader" class="loader-overlay">
+  <div>
+      <img [src]="img" class="box-image"/>
+  </div>
+  <div class="loader-content alegreya-sans-bold ">
+    Rechagre Now
+  </div>
+</div> -->
+
+<div *ngIf="showLoader" class="loader-overlay">
+  <div class="loader-content">
+    <img [src]="img" alt="Logo" class="logo" />
+    <div class="loading-text  alegreya-sans-bold">Rechagre Now</div>
+  </div>
+</div>
+
+
 <app-top-bar></app-top-bar>
 
 <div class="container">

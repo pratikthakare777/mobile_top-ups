@@ -3,10 +3,9 @@
     <div class="xx-lg alegreya-sans-bold"> Worldwide Mobile Rechagre! </div>
     <div class="xx-lg alegreya-sans-thin"> Send Credit and Data to any Phone </div>
   </section>
-
 </div>
 
-<mat-horizontal-stepper (selectionChange)="onStepChange($event)">
+<mat-horizontal-stepper #stepper (selectionChange)="onStepChange($event)">
   <!-- Step 1 -->
   <mat-step [stepControl]="firstFormGroup" [completed]="isStepComplete(0)">
     <ng-template matStepLabel>
@@ -14,11 +13,11 @@
         {{ getIconForStep(0) }}
       </mat-icon>
     </ng-template>
-    <form *ngIf="displayCountryAndMobile" [formGroup]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
       <div>
         <div>Recipient's country</div>
         <app-country-dropdown (notify)="receiveMessage($event)"
-          [selectedCompany]="selectedCompany"></app-country-dropdown>
+          [selectedCompany]="selectedCompany"  [myInputValue]="selectedCountry"></app-country-dropdown>
       </div>
       <div class="mt-3">
         <div class="mt-1">Enter Mobile Number</div>
@@ -40,12 +39,6 @@
         <div *ngIf="firstFormGroup.get('mobileNumber')?.hasError('pattern')" class="ml-xl">
           Mobile number entered and country selected is incorrect.
         </div>
-        <!-- <mat-error *ngIf="firstFormGroup.get('mobileNumber')?.hasError('required')">
-          Mobile number is required
-        </mat-error> -->
-        <!-- <mat-error *ngIf="firstFormGroup.get('mobileNumber').hasError('pattern')">
-          Invalid mobile number format. Please enter a 10-digit number.
-        </mat-error> -->
       </div>
       <div class="mt-3 submit-button">
         <button class="alegreya-sans-medium" (click)="nextStep(firstFormGroup.invalid)" [disabled]="firstFormGroup.invalid" matStepperNext>Start Rechagre</button>
@@ -54,27 +47,57 @@
   </mat-step>
 
   <!-- Step 2 -->
-  <mat-step [completed]="isStepComplete(1)">
+  <mat-step [completed]="isStepComplete(1)" >
     <ng-template matStepLabel>
       <mat-icon [ngClass]="{'active-icon': isActiveStep(1), 'inactive-icon': !isActiveStep(1)}">
         {{ getIconForStep(1) }}
       </mat-icon>
-    </ng-template>
-
-    <div *ngIf="displayCompany" class="container">
-      <div class="boxes">
-        <div class="box" *ngFor="let item of items" (click)="selectItem(item)">
-          <img [src]="item.image" alt="{{ item.title }}" class="box-image" />
-          <div class="box-title">{{ item.title }}</div>
+      </ng-template>
+      <form *ngIf="displayCountryAndMobile" [formGroup]="secondFormGroup">
+          <div>
+            <div>Recipient's country</div>
+            <app-country-dropdown (notify)="receiveMessage($event)"
+              [selectedCompany]="selectedCompany" [myInputValue]="selectedCountry"></app-country-dropdown>
+          </div>  
+          <div class="mt-3">
+            <div class="mt-1">Enter Mobile Number</div>
+            <div class="mt-2 relative">
+              <span class="country-code"> {{selectedCountry?.code}} </span>
+              <input type="text" class="input-box" formControlName="mobileNumber" maxlength="10">
+            </div>
+            <div *ngIf="firstFormGroup.get('mobileNumber')?.hasError('pattern')">
+              <span class="info-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+                </svg>
+              </span>
+              <span class="red-text">
+                Invalid
+              </span>
+            </div>
+            <div *ngIf="firstFormGroup.get('mobileNumber')?.hasError('pattern')" class="ml-xl">
+              Mobile number entered and country selected is incorrect.
+            </div>
+          </div>
+      </form>
+      <div *ngIf="displayCompany" class="container">
+        <div class="boxes">
+          <div class="box" *ngFor="let item of items" (click)="selectItem(item)">
+            <img [src]="item.image" alt="{{ item.title }}" class="box-image" />
+            <div class="box-title">{{ item.title }}</div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div *ngIf="selectedCompany">
-      <div>Let's select a top-up</div>
-      <div *ngFor="let product of productList" class="tile-border"> {{product.value}} {{product.country}} </div>
-    </div>
-
+      <div *ngIf="selectedCompany" class="mb-3">
+         Recipients Details
+         <app-recipients-details (notify)="goToStep($event)"
+         [selectedCompany]="selectedCompany"  [myInputValue]="selectedCountry" [mobileNumber]="firstFormGroup.value['mobileNumber']"></app-recipients-details>
+      </div>
+      <div *ngIf="selectedCompany">
+        <div>Let's select a top-up</div>
+        <div *ngFor="let product of productList" class="tile-border"> {{product.value}} {{product.country}} </div>
+      </div>
   </mat-step>
 
   <!-- Step 3 -->

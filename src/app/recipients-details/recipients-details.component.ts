@@ -2,16 +2,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DataService } from '../data.service';
 
-
 @Component({
-  selector: 'app-country-dropdown',
-  standalone: false,
-  templateUrl: './country-dropdown.component.html',
-  styleUrl: './country-dropdown.component.scss'
+  selector: 'app-recipients-details',
+  templateUrl: './recipients-details.component.html',
+  styleUrl: './recipients-details.component.scss'
 })
-export class CountryDropdownComponent implements OnInit {
+export class RecipientsDetailsComponent {
   @Output() notify: EventEmitter<any> = new EventEmitter<any>();
   @Input() selectedCompany: any;
+  @Input() mobileNumber: any;
   // @Input() selectedCountryFromParent: any;
   private _myInputValue: string = '';
 
@@ -32,8 +31,8 @@ export class CountryDropdownComponent implements OnInit {
   searchTerm = '';
   selectedCountry: any = null;
   countries = [
-    { name: 'United States', flag: 'us', code: '+1' },
     { name: 'India', flag: 'in', code: '+91' },
+    { name: 'United States', flag: 'us', code: '+1' },
     { name: 'France', flag: 'fr', code: '+33' },
     { name: 'Germany', flag: 'de', code: '+49' },
     // Add more countries as needed
@@ -71,12 +70,4 @@ export class CountryDropdownComponent implements OnInit {
       country.name.toLowerCase().includes(term)
     );
   }
-
-  // try {
-  //   const parsedNumber = parsePhoneNumber(phoneNumber, countryCode);
-  //   return parsedNumber.isValid() ? null : { invalidPhoneNumber: true };
-  // } catch (error) {
-  //   return { invalidPhoneNumber: true };
-  // }
-
 }

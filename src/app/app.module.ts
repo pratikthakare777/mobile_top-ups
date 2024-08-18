@@ -29,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 
 
 import { faSquare, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { RecipientsDetailsComponent } from './recipients-details/recipients-details.component';
 
 @NgModule({
 
@@ -68,7 +69,8 @@ import { faSquare, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
   declarations: [
     AppComponent,
     TopBarComponent,
-    CountryDropdownComponent
+    CountryDropdownComponent,
+    RecipientsDetailsComponent,
     // ProductListComponent,
     // ProductAlertsComponent,
     // ProductDetailsComponent,

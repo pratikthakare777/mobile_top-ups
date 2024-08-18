@@ -14,7 +14,7 @@
   height: auto;
   margin: 0 auto;
   text-align: center;
-  padding: 32px;
+  padding: 32px 32px 0px 32px;
 }
 
 .xx-lg {
@@ -22,9 +22,16 @@
 }
 
 :host ::ng-deep .mat-horizontal-stepper-header-container {
-  color: aqua;
+  background-color: #fafee6;
 }
 
+:host ::ng-deep .mat-horizontal-content-container{
+  margin-top: 48px;
+}
+
+:host ::ng-deep .mat-stepper-horizontal{
+  margin-top: 0px !important;
+}
 :host ::ng-deep .mat-step-icon {
   display: none;
 }
@@ -172,22 +179,6 @@
   position: absolute;
   top: 17px;
   left: 17px;
-}
-/* Disable stepper animations */
-.mat-horizontal-stepper-header {
-  transition: none !important;
-}
-
-.mat-stepper-header-container {
-  transition: none !important;
-}
-
-.mat-horizontal-stepper-header {
-  transform: none !important;
-}
-
-.mat-stepper-horizontal-line{
-  transition: none !important;
 }
 
 

@@ -1,11 +1,9 @@
 
 
-import { Component } from '@angular/core';
-import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatButtonModule } from '@angular/material/button';
+import { CdkStep } from '@angular/cdk/stepper';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
 
 /**
  * @title Stepper overview
@@ -16,13 +14,13 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent {
-
+  @ViewChild(MatStepper) stepper: MatStepper | any;
 
   firstFormGroup = this._formBuilder.group({
     mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
   });
   secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
   });
 
   isLinear = false;
@@ -34,15 +32,6 @@ export class TopBarComponent {
   ];
   mobileNumber: any = '';
 
-
-  // images = [
-  //   { src: 'assets/du.png', alt: 'Image 1', title: 'Title 1', background: 'lightblue', selected: false },
-  //   { src: 'assets/du.png', alt: 'Image 2', title: 'Title 2', background: 'lightgreen', selected: false },
-  //   { src: 'assets/du.png', alt: 'Image 3', title: 'Title 3', background: 'lightcoral', selected: false },
-  //   { src: 'assets/du.png', alt: 'Image 4', title: 'Title 4', background: 'lightgoldenrodyellow', selected: false }
-  // ];
-
-  //New design
   activeStep = 0;
   isStep1Complete = false;
   isStep2Complete = false;
@@ -75,6 +64,15 @@ export class TopBarComponent {
   // Handle step changes to update the active step index
   onStepChange(event: any) {
     this.activeIndex = event.selectedIndex;
+    const step: CdkStep = event.selectedStep;
+    console.log('activeIndex', this.firstFormGroup);
+    // Add your condition to check if navigation is allowed
+    if (this.activeIndex === 1 && this.firstFormGroup.invalid) {
+      event.previouslySelectedStep.selected = true;
+      this.stepper.selectedIndex = 0; 
+      // Optionally show a message or alert
+      // alert('Please complete the form before proceeding.');
+    }
   }
 
   // Get the icon for a step based on its state
@@ -115,13 +113,23 @@ export class TopBarComponent {
   normalItem = { title: 'Normal Box', image: 'https://via.placeholder.com/300x200' };
 
   selectItem(item: any) {
+    this.displayCountryAndMobile = false;
+    this.displayCompany  = false;
     this.selectedCompany = item;
     console.log('Selected item:', item);
-    // Add any additional logic needed for selection
   }
+
   nextStep(value: boolean) {
-    console.log(value);
+    console.log(this.firstFormGroup.value);
+    this.secondFormGroup.patchValue({
+      mobileNumber: this.firstFormGroup.value['mobileNumber']
+    });
+    // setValue('mobileNumber') = this.firstFormGroup.controls('mobileNumber').value();
     if (!value)
       this.displayCompany = true;
+  }
+
+  goToStep(value: any){
+    this.stepper.selectedIndex = 0;
   }
 }
