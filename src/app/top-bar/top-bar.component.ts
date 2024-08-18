@@ -1,11 +1,11 @@
 
 
-import {Component} from '@angular/core';
-import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatButtonModule} from '@angular/material/button';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
 
 /**
  * @title Stepper overview
@@ -17,7 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class TopBarComponent {
 
-  
+
   firstFormGroup = this._formBuilder.group({
     mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
   });
@@ -26,7 +26,7 @@ export class TopBarComponent {
   });
 
   isLinear = false;
-  selectedCountry: any = null;  
+  selectedCountry: any = null;
   countries = [
     { code: 'us', name: 'United States', flag: 'us' },
     { code: 'fr', name: 'France', flag: 'fr' },
@@ -34,7 +34,7 @@ export class TopBarComponent {
   ];
   mobileNumber: any = '';
 
-  
+
   // images = [
   //   { src: 'assets/du.png', alt: 'Image 1', title: 'Title 1', background: 'lightblue', selected: false },
   //   { src: 'assets/du.png', alt: 'Image 2', title: 'Title 2', background: 'lightgreen', selected: false },
@@ -47,6 +47,8 @@ export class TopBarComponent {
   isStep1Complete = false;
   isStep2Complete = false;
   selectedCompany: any;
+  displayCountryAndMobile: boolean = true;
+  displayCompany: boolean = false;
 
 
   setActiveStep(step: number): void {
@@ -56,9 +58,9 @@ export class TopBarComponent {
   constructor(private _formBuilder: FormBuilder) {
   }
 
-  
+
   activeIndex = 0;
-  
+
   // Define logic to check if a step is complete
   isStepComplete(index: number): boolean {
     // For demonstration, assume no steps are complete
@@ -84,7 +86,7 @@ export class TopBarComponent {
     }
   }
 
-  receiveMessage($event: any){
+  receiveMessage($event: any) {
     this.selectedCountry = $event;
     console.log($event);
   }
@@ -102,19 +104,24 @@ export class TopBarComponent {
     { title: 'Nol', image: 'assets/nol.png' }
   ];
 
-  productList =[
-    { value: 10 , country: 'AED' },
-    { value: 20 , country: 'AED' },
-    { value: 30 , country: 'AED' },
-    { value: 40 , country: 'AED' },
-    { value: 50 , country: 'AED' },
-    { value: 60 , country: 'AED' },
-  ] 
+  productList = [
+    { value: 10, country: 'AED' },
+    { value: 20, country: 'AED' },
+    { value: 30, country: 'AED' },
+    { value: 40, country: 'AED' },
+    { value: 50, country: 'AED' },
+    { value: 60, country: 'AED' },
+  ]
   normalItem = { title: 'Normal Box', image: 'https://via.placeholder.com/300x200' };
 
   selectItem(item: any) {
     this.selectedCompany = item;
     console.log('Selected item:', item);
     // Add any additional logic needed for selection
+  }
+  nextStep(value: boolean) {
+    console.log(value);
+    if (!value)
+      this.displayCompany = true;
   }
 }
