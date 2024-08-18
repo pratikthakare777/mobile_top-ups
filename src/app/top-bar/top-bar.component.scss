@@ -1,0 +1,340 @@
+// import "./node_modules/flag-icons/css/flag-icons.min.css";
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+.bg-yellow {
+  background-color: #fafee6;
+  color: #004a59;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px;
+}
+
+.xx-lg {
+  font-size: xx-large;
+}
+
+:host ::ng-deep .mat-horizontal-stepper-header-container {
+  color: aqua;
+}
+
+:host ::ng-deep .mat-step-icon {
+  display: none;
+}
+
+:host ::ng-deep .mat-step-header:hover:not([aria-disabled]),
+.mat-step-header:hover[aria-disabled=false] {
+  background-color: transparent !important;
+}
+
+.inactive-icon {
+  color: #b8aa90;
+  /* Customize color for active step */
+  font-size: 24px;
+  /* Customize size as needed */
+}
+
+.active-icon {
+  color: #89664d !important;
+  /* Customize color for active step */
+  font-size: 24px !important;
+  /* Customize size as needed */
+}
+
+/* Style for the single circle */
+// .active-icon {
+//   color: #89664d !important;
+//   width: 19px; /* Size of the gray circle */
+//   height: 19px; /* Size of the gray circle */
+//   background-color: #89664d; /* Gray color for the outer circle */
+//   border-radius: 50%; /* Makes the div a circle */
+//   position: relative; /* Positioning for the pseudo-element */
+//   box-shadow: inset 0 0 0 4px #89664d; /* Creates the outer gray circle effect */
+// }
+
+// /* Add a white circle effect */
+// .active-icon::before {
+//   content: '';
+//   position: absolute;
+//   top: 25%; /* Center the white circle vertically */
+//   left: 25%; /* Center the white circle horizontally */
+//   width: 50%; /* Size of the inner white circle */
+//   height: 50%; /* Size of the inner white circle */
+//   background-color: white; /* White color for the inner circle */
+//   border-radius: 50%; /* Makes the pseudo-element a circle */
+// }
+
+
+/* Style the flag icons */
+.flag-icon {
+  display: inline-block;
+  width: 20px;
+  /* Adjust size as needed */
+  height: 14px;
+  /* Adjust size as needed */
+  margin-right: 8px;
+  /* Space between icon and text */
+  border-radius: 50%;
+  /* Optional: makes the flag icon circular */
+}
+
+/* Style for the flag icons */
+.flag-icon {
+  display: inline-block !important;
+  width: 20px !important;
+  /* Size of the flag icon */
+  height: 14px !important;
+  /* Size of the flag icon */
+  margin-right: 8px !important;
+  /* Space between icon and text */
+}
+
+
+/* Style for the transparent dropdown */
+:host ::ng-deep .transparent-select .mat-select-trigger {
+  background: transparent !important;
+  /* Make the dropdown trigger background transparent */
+  border: none !important;
+  /* Remove default border */
+}
+
+:host ::ng-deep .transparent-select .mat-select-arrow {
+  color: black !important;
+  /* Color for the dropdown arrow */
+}
+
+:host ::ng-deep .transparent-select .mat-option {
+  background: transparent !important;
+  /* Make dropdown options background transparent */
+  border-radius: 0 !important;
+  /* Remove rounded corners */
+  padding: 8px 16px !important;
+  /* Adjust padding */
+}
+
+:host ::ng-deep .transparent-select .mat-select-panel {
+  background: transparent !important;
+  /* Make the dropdown menu background transparent */
+  box-shadow: none !important;
+  /* Remove default shadow if needed */
+}
+
+:host ::ng-deep .transparent-select .mat-option:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+  /* Optional: Add a subtle background on hover */
+}
+
+.input-box {
+  width: 100%;
+  height: 54px;
+  border-radius: 41px;
+  border: 1px solid #b3b3b3;
+  padding: 10.5px 3px 10px 51px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  text-align: center;
+
+  button {
+    width: 100%;
+    background: #004a59;
+    padding: 8px;
+    color: white;
+    height: 42px;
+    border-radius: 21px;
+    font-size: 18px;
+    border: 1px solid #b3b3b3;
+    cursor: pointer;
+  }
+}
+.info-svg svg{
+  width: 17px;
+  padding: 20px;
+}
+.red-text {
+  color: red !important;
+}
+
+.ml-xl{
+  margin-left: 61px;
+}
+
+.country-code{
+  position: absolute;
+  top: 17px;
+  left: 17px;
+}
+/* Disable stepper animations */
+.mat-horizontal-stepper-header {
+  transition: none !important;
+}
+
+.mat-stepper-header-container {
+  transition: none !important;
+}
+
+.mat-horizontal-stepper-header {
+  transform: none !important;
+}
+
+.mat-stepper-horizontal-line{
+  transition: none !important;
+}
+
+
+// /* Style for the container */
+// .container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   // height: 100vh;
+//   padding: 16px;
+// }
+
+// /* Style for the card to contain the grid */
+// .card {
+//   width: 100%;
+//   max-width: 800px;
+//   padding: 16px;
+//   img {
+//     width: 40px;
+//     height: 40px;
+//   }
+//   .title{
+//     position: absolute;
+//     bottom: 26px;
+//   }
+// }
+
+// /* Ensure images fit the grid tiles */
+// .grid-image {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// .mat-grid-tile{
+//   border: 1px solid;
+//   border-radius: 37%;
+// }
+// /* Highlight the selected image */
+// .mat-grid-tile.selected {
+//   border: 5px solid blue; /* Highlight color */
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+// }
+
+// /* Responsive layout for different screen sizes */
+// @media (max-width: 600px) {
+//   mat-grid-list {
+//     grid-template-columns: repeat(1, 1fr) !important;
+//   }
+// }
+
+// @media (min-width: 600px) and (max-width: 960px) {
+//   mat-grid-list {
+//     grid-template-columns: repeat(2, 1fr) !important;
+//   }
+// }
+
+// @media (min-width: 960px) {
+//   mat-grid-list {
+//     grid-template-columns: repeat(2, 1fr) !important;
+//   }
+// }
+
+/* Basic styling for the container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Styling for the boxes */
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Styling for each box */
+.box {
+  width: 152px;
+  height: 85px;
+  border-radius: 27px;
+  border: 2px solid #ccc;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+/* Styling for the box image */
+.box-image {
+  // width: 66px;
+  height: 38px;
+  object-fit: cover;
+  margin-top: 7px;
+}
+
+/* Styling for the box title */
+.box-title {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Styling for the normal box */
+.normal-box {
+  width: 300px; /* Adjust as needed */
+  border-radius: 15px;
+  border: 2px solid #ccc;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Styling for the normal box image */
+.normal-box-image {
+  width: 100%;
+  height: 200px; /* Adjust as needed */
+  object-fit: cover;
+}
+
+/* Styling for the normal box title */
+.normal-box-title {
+  padding: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.tile-border{
+    width: 100%;
+    padding: 20px;
+    border-radius: 29px;
+    border: 1px solid gray;
+    margin: 20px 0px 20px 0px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
