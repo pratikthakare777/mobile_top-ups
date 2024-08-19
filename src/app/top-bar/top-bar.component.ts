@@ -13,6 +13,7 @@ import { MatStepper } from '@angular/material/stepper';
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss'],
 })
+
 export class TopBarComponent {
   @ViewChild(MatStepper) stepper: MatStepper | any;
 
@@ -31,24 +32,20 @@ export class TopBarComponent {
     { code: 'de', name: 'Germany', flag: 'de' },
   ];
   mobileNumber: any = '';
-
   activeStep = 0;
   isStep1Complete = false;
   isStep2Complete = false;
   selectedCompany: any;
   displayCountryAndMobile: boolean = true;
   displayCompany: boolean = false;
-
-
-  setActiveStep(step: number): void {
-    this.activeStep = step;
-  }
+  activeIndex = 0;
 
   constructor(private _formBuilder: FormBuilder) {
   }
 
-
-  activeIndex = 0;
+  setActiveStep(step: number): void {
+    this.activeStep = step;
+  }
 
   // Define logic to check if a step is complete
   isStepComplete(index: number): boolean {
@@ -69,7 +66,7 @@ export class TopBarComponent {
     // Add your condition to check if navigation is allowed
     if (this.activeIndex === 1 && this.firstFormGroup.invalid) {
       event.previouslySelectedStep.selected = true;
-      this.stepper.selectedIndex = 0; 
+      this.stepper.selectedIndex = 0;
       // Optionally show a message or alert
       // alert('Please complete the form before proceeding.');
     }
@@ -114,7 +111,7 @@ export class TopBarComponent {
 
   selectItem(item: any) {
     this.displayCountryAndMobile = false;
-    this.displayCompany  = false;
+    this.displayCompany = false;
     this.selectedCompany = item;
     console.log('Selected item:', item);
   }
@@ -124,12 +121,11 @@ export class TopBarComponent {
     this.secondFormGroup.patchValue({
       mobileNumber: this.firstFormGroup.value['mobileNumber']
     });
-    // setValue('mobileNumber') = this.firstFormGroup.controls('mobileNumber').value();
     if (!value)
       this.displayCompany = true;
   }
 
-  goToStep(value: any){
+  goToStep(value: any) {
     this.stepper.selectedIndex = 0;
   }
 }

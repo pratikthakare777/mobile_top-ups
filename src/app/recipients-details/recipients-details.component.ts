@@ -11,12 +11,9 @@ export class RecipientsDetailsComponent {
   @Output() notify: EventEmitter<any> = new EventEmitter<any>();
   @Input() selectedCompany: any;
   @Input() mobileNumber: any;
-  // @Input() selectedCountryFromParent: any;
-  private _myInputValue: string = '';
 
   @Input()
   set myInputValue(value: string) {
-    console.log('country',value);
     // Perform any transformation or logic here before setting the value
     this._myInputValue = value;
     this.selectedCountry= value;
@@ -26,7 +23,8 @@ export class RecipientsDetailsComponent {
   get myInputValue(): string {
     return this._myInputValue;
   }
-  
+
+  private _myInputValue: string = '';
   isOpen = false;
   searchTerm = '';
   selectedCountry: any = null;
@@ -35,7 +33,6 @@ export class RecipientsDetailsComponent {
     { name: 'United States', flag: 'us', code: '+1' },
     { name: 'France', flag: 'fr', code: '+33' },
     { name: 'Germany', flag: 'de', code: '+49' },
-    // Add more countries as needed
   ];
   filteredCountries = this.countries;
   error: any;

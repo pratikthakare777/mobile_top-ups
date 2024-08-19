@@ -12,7 +12,6 @@ import { DataService } from '../data.service';
 export class CountryDropdownComponent implements OnInit {
   @Output() notify: EventEmitter<any> = new EventEmitter<any>();
   @Input() selectedCompany: any;
-  // @Input() selectedCountryFromParent: any;
   private _myInputValue: string = '';
 
   @Input()
@@ -36,7 +35,6 @@ export class CountryDropdownComponent implements OnInit {
     { name: 'India', flag: 'in', code: '+91' },
     { name: 'France', flag: 'fr', code: '+33' },
     { name: 'Germany', flag: 'de', code: '+49' },
-    // Add more countries as needed
   ];
   filteredCountries = this.countries;
   error: any;
@@ -55,6 +53,7 @@ export class CountryDropdownComponent implements OnInit {
       }
     });
   }
+
   toggleDropdown() {
     this.isOpen = !this.isOpen;
   }
