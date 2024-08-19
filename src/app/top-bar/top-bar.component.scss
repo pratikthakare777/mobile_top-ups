@@ -1,5 +1,3 @@
-// import "./node_modules/flag-icons/css/flag-icons.min.css";
-
 .mat-stepper-horizontal {
   margin-top: 8px;
 }
@@ -25,13 +23,14 @@
   background-color: #fafee6;
 }
 
-:host ::ng-deep .mat-horizontal-content-container{
+:host ::ng-deep .mat-horizontal-content-container {
   margin-top: 48px;
 }
 
-:host ::ng-deep .mat-stepper-horizontal{
+:host ::ng-deep .mat-stepper-horizontal {
   margin-top: 0px !important;
 }
+
 :host ::ng-deep .mat-step-icon {
   display: none;
 }
@@ -42,42 +41,26 @@
 }
 
 .inactive-icon {
-  color: #b8aa90;
-  /* Customize color for active step */
+  color: #89664d;
   font-size: 24px;
-  /* Customize size as needed */
 }
 
 .active-icon {
-  color: #89664d !important;
-  /* Customize color for active step */
-  font-size: 24px !important;
-  /* Customize size as needed */
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: white;
+  border: 4px solid #89664d;
 }
 
-/* Style for the single circle */
-// .active-icon {
-//   color: #89664d !important;
-//   width: 19px; /* Size of the gray circle */
-//   height: 19px; /* Size of the gray circle */
-//   background-color: #89664d; /* Gray color for the outer circle */
-//   border-radius: 50%; /* Makes the div a circle */
-//   position: relative; /* Positioning for the pseudo-element */
-//   box-shadow: inset 0 0 0 4px #89664d; /* Creates the outer gray circle effect */
-// }
+:host ::ng-deep .mat-stepper-horizontal-line {
+  border-top-width: 3px;
+  border-top-color: #d3c3a4;
+}
 
-// /* Add a white circle effect */
-// .active-icon::before {
-//   content: '';
-//   position: absolute;
-//   top: 25%; /* Center the white circle vertically */
-//   left: 25%; /* Center the white circle horizontally */
-//   width: 50%; /* Size of the inner white circle */
-//   height: 50%; /* Size of the inner white circle */
-//   background-color: white; /* White color for the inner circle */
-//   border-radius: 50%; /* Makes the pseudo-element a circle */
-// }
-
+:host ::ng-deep .mat-horizontal-stepper-header-container {
+  padding: 0px 8%;
+}
 
 /* Style the flag icons */
 .flag-icon {
@@ -163,94 +146,38 @@
     cursor: pointer;
   }
 }
-.info-svg{
+
+.info-svg {
   float: left;
   width: 60px;
-  mat-icon{
+
+  mat-icon {
     width: 17px;
     padding: 20px;
     color: gray;
   }
-} 
-.info-right{
+}
+
+.info-right {
   float: left;
   padding: 20px 0px;
   width: 321px;
 }
+
 .red-text {
   color: red !important;
 }
 
-.ml-xl{
+.ml-xl {
   margin-left: 61px;
 }
 
-.country-code{
+.country-code {
   position: absolute;
   top: 17px;
   left: 17px;
 }
 
-
-// /* Style for the container */
-// .container {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   // height: 100vh;
-//   padding: 16px;
-// }
-
-// /* Style for the card to contain the grid */
-// .card {
-//   width: 100%;
-//   max-width: 800px;
-//   padding: 16px;
-//   img {
-//     width: 40px;
-//     height: 40px;
-//   }
-//   .title{
-//     position: absolute;
-//     bottom: 26px;
-//   }
-// }
-
-// /* Ensure images fit the grid tiles */
-// .grid-image {
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-// }
-
-// .mat-grid-tile{
-//   border: 1px solid;
-//   border-radius: 37%;
-// }
-// /* Highlight the selected image */
-// .mat-grid-tile.selected {
-//   border: 5px solid blue; /* Highlight color */
-//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-// }
-
-// /* Responsive layout for different screen sizes */
-// @media (max-width: 600px) {
-//   mat-grid-list {
-//     grid-template-columns: repeat(1, 1fr) !important;
-//   }
-// }
-
-// @media (min-width: 600px) and (max-width: 960px) {
-//   mat-grid-list {
-//     grid-template-columns: repeat(2, 1fr) !important;
-//   }
-// }
-
-// @media (min-width: 960px) {
-//   mat-grid-list {
-//     grid-template-columns: repeat(2, 1fr) !important;
-//   }
-// }
 
 /* Basic styling for the container */
 .container {
@@ -305,7 +232,8 @@
 
 /* Styling for the normal box */
 .normal-box {
-  width: 300px; /* Adjust as needed */
+  width: 300px;
+  /* Adjust as needed */
   border-radius: 15px;
   border: 2px solid #ccc;
   overflow: hidden;
@@ -319,7 +247,8 @@
 /* Styling for the normal box image */
 .normal-box-image {
   width: 100%;
-  height: 200px; /* Adjust as needed */
+  height: 200px;
+  /* Adjust as needed */
   object-fit: cover;
 }
 
@@ -330,16 +259,26 @@
   color: #333;
 }
 
-.tile-border{
-    width: 100%;
-    padding: 20px;
-    border-radius: 29px;
-    border: 1px solid gray;
-    margin: 20px 0px 20px 0px;
-    box-sizing: border-box;
-    cursor: pointer;
+.tile-border {
+  width: 100%;
+  padding: 20px;
+  border-radius: 29px;
+  border: 1px solid gray;
+  margin: 20px 0px 20px 0px;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 :host ::ng-deep .mat-step-header {
   pointer-events: none;
+}
+
+.icon-container {
+  width: 100px;
+  /* Adjust the size as needed */
+  height: 100px;
+  /* Adjust the size as needed */
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #89664d;
 }
