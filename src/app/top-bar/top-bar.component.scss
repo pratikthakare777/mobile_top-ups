@@ -163,9 +163,19 @@
     cursor: pointer;
   }
 }
-.info-svg svg{
-  width: 17px;
-  padding: 20px;
+.info-svg{
+  float: left;
+  width: 60px;
+  mat-icon{
+    width: 17px;
+    padding: 20px;
+    color: gray;
+  }
+} 
+.info-right{
+  float: left;
+  padding: 20px 0px;
+  width: 321px;
 }
 .red-text {
   color: red !important;
