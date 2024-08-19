@@ -23,7 +23,7 @@ npm -v
 ### Setup
 Clone the Repository
 
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/pratikthakare777/mobile_top-ups.git
 cd your-repository
 
 ### Install Dependencies
